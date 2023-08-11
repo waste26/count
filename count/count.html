@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your GitHub Pages Website</title>
+  <script>
+    // Function to increment the visit count
+    function incrementVisitCount() {
+      // Check if localStorage is supported
+      if (typeof(Storage) !== "undefined") {
+        // Check if visitCount is already stored
+        if (localStorage.visitCount) {
+          localStorage.visitCount = parseInt(localStorage.visitCount) + 1;
+        } else {
+          localStorage.visitCount = 1;
+        }
+      }
+    }
+
+    // Call the incrementVisitCount function when the page loads
+    window.onload = function() {
+      incrementVisitCount();
+    };
+  </script>
+</head>
+<body>
+  <h1>Welcome to My Website</h1>
+  <p>This is some content.</p>
+  <p>Total Visits: <span id="visitCount">0</span></p>
+  <script>
+    // Update the visitCount element with the stored visit count
+    if (localStorage.visitCount) {
+      document.getElementById("visitCount").textContent = localStorage.visitCount;
+    }
+  </script>
+</body>
+</html>
